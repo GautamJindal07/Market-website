@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="margin: 0;padding: 0;">
+    <div style = "background:linear-gradient(70deg,rgba(206, 40, 98, 0.932), rgba(206, 40, 98, 0.932));display: flex;align-items: baseline;justify-content: space-between;">
+        
+        <ul style = "display: flex;justify-content: space-between;align-items: baseline;text-decoration: none;color: white;flex-direction: row;  list-style-type: none;">
+            <li style = "margin-right: 35px;"><a href="/" style = "text-decoration: none;;color: white;font-size: 17px;font-family: arial;font-weight: 700;">Home</a></li>
+            <li style = "margin-right: 35px;"><a href="/addproject" style = "text-decoration: none;color: white;font-size: 17px;font-family: arial;font-weight: 700;">Add Projects</a></li>
+
+        </ul>
+    </div><br>
+
+    <div style="width:800px;margin: 0 auto;background:linear-gradient(70deg, rgba(206, 40, 98, 0.932), rgba(206, 40, 98, 0.932));color:white;">
+        <table align="center" border="1" cellspacing="5" style="font-family: arial;padding: 35px;">
+            <tr>
+                <td>ProjectId</td>
+                <td>Category</td>
+                <td>Price</td>
+                <td>Dedicated Days</td>
+            </tr>
+                <% for(var i = 0; i < result.length; i++) { %>
+                    <tr>
+                        <td><%= result[i].projectId %></td>
+                        <td><%= result[i].category %></td>
+                        <td><%= result[i].price %></td>
+                        <td><%= result[i].dedicatedDays %></td>
+                        <td>
+                            <a href="/editproject?projectId=<%= result[i].projectId %>" style="color: white;">Edit</a>
+                            <a href="/deleteproject?projectId=<%= result[i].projectId %>" style="color: white;">Delete</a>
+                        </td>
+                    </tr>
+                <% } %>
+        </table>
+    </div>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Registration</title>
+</head>
+<body style="margin: 0;padding: 0;">
+    <form action="/editusers_submit" method="post">
+        <table style="width:500px;margin: 0 auto;background:linear-gradient(70deg,rgba(206, 40, 98, 0.932), rgba(206, 40, 98, 0.932));padding: 40px;color:white;font-family: arial;">
+
+            <tr>
+                <td>First Name</td>
+                <td><input type="text" name="FirstName" value="<%=  User.FirstName %>"></td>
+            </tr>
+            <tr>
+                <td>Last Name</td>
+                <td><input type="text" name="LastName" value="<%=  User.LastName %>"></td>
+            </tr>
+            <tr>
+                <td>UserId</td>
+                <td><input type="number" name="UserId" value="<%=  User.UserId %>"></td>
+            </tr>
+            <tr>
+                <td>Username</td>
+                <td><input type="text" name="Username" value="<%=  User.Username %>"></td>
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td><input type="email" name="Email" value="<%=  User.Email %>"></td>
+            </tr>
+            <tr>
+                <td>Password</td>
+                <td><input type="password" name="Password" value="<%=  User.Password %>"></td>
+            </tr>
+            <tr>
+                <td>Address</td>
+                <td><input type="text" name="Address" value="<%=  User.Address %>"></td>
+            </tr>
+            <tr>
+                <td>Address2</td>
+                <td><input type="text" name="Address2" value="<%=  User.Address2 %>"></td>
+            </tr>
+            <tr>
+                <td>City</td>
+                <td><input type="text" name="City" value="<%=  User.City %>"></td>
+            </tr>
+            <tr>
+                <td>State</td>
+                <td><input type="text" name="State" value="<%=  User.State %>"></td>
+            </tr>
+            <tr>
+                <td>Zip</td>
+                <td><input type="number" name="Zip" value="<%=  User.Zip %>"></td>
+            </tr>
+            <tr>
+                <td colspan="2"><input type="submit" value="Submit" /></td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

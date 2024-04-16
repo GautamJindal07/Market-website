@@ -1,0 +1,217 @@
+
+mysql> use marketingproject
+Database changed
+mysql> show tables
+    -> ;
++----------------------------+
+| Tables_in_marketingproject |
++----------------------------+
+| about                      |
+| contactus                  |
+| employees                  |
+| enrolments                 |
+| projects                   |
+| testimonials               |
+| users                      |
++----------------------------+
+7 rows in set (0.03 sec)
+
+mysql> desc users;
++-----------+--------------+------+-----+---------+----------------+
+| Field     | Type         | Null | Key | Default | Extra          |
++-----------+--------------+------+-----+---------+----------------+
+| FirstName | varchar(100) | YES  |     | NULL    |                |
+| LastName  | varchar(100) | YES  |     | NULL    |                |
+| UserId    | int          | NO   | PRI | NULL    | auto_increment |
+| Username  | varchar(100) | NO   |     | NULL    |                |
+| Email     | varchar(100) | NO   |     | NULL    |                |
+| Password  | varchar(100) | NO   |     | NULL    |                |
+| Address   | varchar(100) | YES  |     | NULL    |                |
+| Address2  | varchar(100) | YES  |     | NULL    |                |
+| City      | varchar(100) | YES  |     | NULL    |                |
+| State     | varchar(100) | YES  |     | NULL    |                |
+| Zip       | int          | YES  |     | NULL    |                |
++-----------+--------------+------+-----+---------+----------------+
+11 rows in set (0.01 sec)
+
+mysql> desc testimonials;
++---------+---------------+------+-----+---------+----------------+
+| Field   | Type          | Null | Key | Default | Extra          |
++---------+---------------+------+-----+---------+----------------+
+| UserID  | int           | NO   | PRI | NULL    | auto_increment |
+| Name    | varchar(100)  | NO   |     | NULL    |                |
+| Remarks | varchar(1000) | YES  |     | NULL    |                |
+| stars   | int           | NO   |     | NULL    |                |
++---------+---------------+------+-----+---------+----------------+
+4 rows in set (0.00 sec)
+
+mysql> desc projects;
++---------------+--------------+------+-----+---------+-------+
+| Field         | Type         | Null | Key | Default | Extra |
++---------------+--------------+------+-----+---------+-------+
+| projectId     | int          | NO   | PRI | NULL    |       |
+| category      | varchar(100) | YES  |     | NULL    |       |
+| price         | int          | NO   |     | NULL    |       |
+| dedicatedDays | int          | NO   |     | NULL    |       |
++---------------+--------------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
+
+mysql> desc enrolments;
++-----------+--------------+------+-----+---------+----------------+
+| Field     | Type         | Null | Key | Default | Extra          |
++-----------+--------------+------+-----+---------+----------------+
+| userId    | int          | YES  | MUL | NULL    |                |
+| projectId | int          | YES  | MUL | NULL    |                |
+| Email     | varchar(100) | YES  |     | NULL    |                |
+| status    | varchar(100) | NO   |     | NULL    |                |
+| enr_id    | int          | NO   | PRI | NULL    | auto_increment |
++-----------+--------------+------+-----+---------+----------------+
+5 rows in set (0.00 sec)
+
+mysql> desc employees;
++-------------+--------------+------+-----+---------+----------------+
+| Field       | Type         | Null | Key | Default | Extra          |
++-------------+--------------+------+-----+---------+----------------+
+| empId       | int          | NO   | PRI | NULL    | auto_increment |
+| empName     | varchar(100) | NO   |     | NULL    |                |
+| empMail     | varchar(100) | NO   |     | NULL    |                |
+| Salary      | int          | NO   |     | NULL    |                |
+| DateOfBirth | date         | YES  |     | NULL    |                |
+| projectId   | int          | YES  | MUL | NULL    |                |
++-------------+--------------+------+-----+---------+----------------+
+6 rows in set (0.00 sec)
+
+mysql> desc contactus;
++---------+--------------+------+-----+---------+----------------+
+| Field   | Type         | Null | Key | Default | Extra          |
++---------+--------------+------+-----+---------+----------------+
+| Email   | varchar(100) | YES  |     | NULL    |                |
+| Message | varchar(500) | YES  |     | NULL    |                |
+| cont_id | int          | NO   | PRI | NULL    | auto_increment |
++---------+--------------+------+-----+---------+----------------+
+3 rows in set (0.00 sec)
+
+mysql> desc about;
++---------+------+------+-----+---------+----------------+
+| Field   | Type | Null | Key | Default | Extra          |
++---------+------+------+-----+---------+----------------+
+| aboutid | int  | NO   | PRI | NULL    | auto_increment |
+| aboutus | text | NO   |     | NULL    |                |
++---------+------+------+-----+---------+----------------+
+2 rows in set (0.00 sec)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+mysql> select * from users;
++-----------+-----------+-----------+------------+---------------------------------+------------+-------------------------------------+-------------+---------+--------+--------+
+| FirstName | LastName  | UserId    | Username   | Email                           | Password   | Address
+              | Address2    | City    | State  | Zip    |
++-----------+-----------+-----------+------------+---------------------------------+------------+-------------------------------------+-------------+---------+--------+--------+
+| Madhvan   | Jindal    |        22 | 12345      | madhvan@gmail.com               | 12345      | #720, S.S.T. Nagar, Patiala, Punjab | cascascsavc | Patiala | Punjab | 147001 |
+| Gautam    | Jindal    |     56789 | 123456@9   | gautam0507.be21@chitkara.edu.in | jindal     | #720, S.S.T. Nagar, Patiala, Punjab | cascascsavc | Patiala | Punjab | 147001 |
+| zvdbssca  | dfasdcadc | 111111112 | 123456@9   | gautam0507.be21@chitkara.edu.in | casvd      | #720, S.S.T. Nagar, Patiala, Punjab | cascascsavc | Patiala | ...    | 147001 |
+| Disha     | Sharma    | 111111113 | Disha@123  | disha@gmail.com                 | 456123     | Patiala
+              | Patiala     | Patiala | ...    | 147001 |
+| Abhi      | Sharma    | 111111116 | ashrma@123 | Abhi@gmail.com                  | 456123     | Patiala
+              | Patiala     | Patiala | ...    | 147001 |
+| Gautam    | Jindal    | 111111121 | 123456@9   | gautam0507.be21@chitkara.edu.in | sqawfegrhj | #720, S.S.T. Nagar, Patiala, Punjab | cascascsavc | Patiala | ...    | 147001 |
++-----------+-----------+-----------+------------+---------------------------------+------------+-------------------------------------+-------------+---------+--------+--------+
+6 rows in set (0.03 sec)
+
+mysql> select * from testimonials;
++--------+--------------+-----------------+-------+
+| UserID | Name         | Remarks         | stars |
++--------+--------------+-----------------+-------+
+|      3 | Jain         | Nice experience |     4 |
+|      4 | Aadhya Reddy | NULL            |     3 |
+|      5 | Vivaan Gupta | Could improve   |     2 |
+|      6 | Jindal       | veryyy good     |     4 |
++--------+--------------+-----------------+-------+
+4 rows in set (0.01 sec)
+
+mysql> select * from projects;
++-----------+------------------------+-------+---------------+
+| projectId | category               | price | dedicatedDays |
++-----------+------------------------+-------+---------------+
+|       101 | SEO                    | 15000 |            30 |
+|       102 | Content Writing        | 20000 |            45 |
+|       103 | Social Media Marketing | 25000 |            60 |
+|       104 | Email Marketing        | 18000 |            37 |
+|       111 | streaming              | 40000 |             3 |
++-----------+------------------------+-------+---------------+
+5 rows in set (0.01 sec)
+
+mysql> select * from enrolments;
++--------+-----------+------------------+--------------+--------+
+| userId | projectId | Email            | status       | enr_id |
++--------+-----------+------------------+--------------+--------+
+|   NULL |      NULL | jindal@gmail.com | yfcgvuhjbklm |      2 |
++--------+-----------+------------------+--------------+--------+
+1 row in set (0.01 sec)
+
+mysql> select * from employees;
++-------+---------+----------------+--------+-------------+-----------+
+| empId | empName | empMail        | Salary | DateOfBirth | projectId |
++-------+---------+----------------+--------+-------------+-----------+
+|     3 | hgjk    | sdfsd@ghjk.com |  40000 | 2024-01-07  |       101 |
++-------+---------+----------------+--------+-------------+-----------+
+1 row in set (0.01 sec)
+
+mysql> select * from contactus;
++---------------------------------+--------------------------------+---------+
+| Email                           | Message                        | cont_id |
++---------------------------------+--------------------------------+---------+
+| yhtbgrvfed@ghm.com              | fneosdkmjnigfepkmrogbkmmgrbrmr |       4 |
+| gautam0507.be21@chitkara.edu.in | it was a well made website     |       5 |
+| madhvan@gmail.com               | hello                          |       6 |
+| ftcghjbkl@fghj.com              | s5edtrygvhjbkl                 |       7 |
+| ftcghjbkl@fghj.com              | s5edtrygvhjbkl                 |       8 |
+| ftcghjbkl@fghj.com              | s5edtrygvhjbkl                 |       9 |
+| gautam0507.be21@chitkara.edu.in | fcghvjbklm                     |      10 |
+| ksduhfs@gmail.com               | s5edtrygvhjbkl                 |      11 |
++---------------------------------+--------------------------------+---------+
+8 rows in set (0.01 sec)
+
+mysql> select * from about;
++---------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| aboutid | aboutus
+
+
+
+
+
+
+
+                                                                             |
++---------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|       1 | Welcome to BlueRex, where innovation meets creativity, and digital dreams become reality. At BlueRex, we don't just build websites; we craft digital experiences that leave lasting impressions. Established with a passion for pushing the boundaries of web development, BlueRex has emerged as a powerhouse in the world of digital marketing.  Our Journey Since our inception, back in 2010, we've embarked on a relentless journey to redefine the landscape of digital and graphic design. Our team, a dynamic blend of artistic visionaries and tech-savvy professionals, is fueled by a shared commitment: to transform the ordinary into the extraordinary.  What Sets Us Apart At BlueRex, we understand that every project is unique. Whether you're a budding startup or an established enterprise, we tailor our approach to meet your specific needs. Our solutions are not just visually stunning; they are strategically crafted to drive engagement, enhance user experience, and ultimately, boost your brand's online presence.  Creative Excellence, Technical Prowess Our commitment to excellence extends across every facet of our work. From sleek and responsive web designs to robust and scalable web applications, BlueRex combines creative flair with technical prowess. We take pride in staying ahead of the curve, adopting the latest technologies to ensure that your digital presence is always cutting-edge. |
++---------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+1 row in set (0.01 sec)
+
+mysql>

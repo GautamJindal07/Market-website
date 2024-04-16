@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="margin: 0;padding: 0;">
+    <div style = "background:linear-gradient(70deg, rgba(206, 40, 98, 0.932), rgba(206, 40, 98, 0.932));display: flex;align-items: baseline;justify-content: space-between;">
+        
+        <ul style = "display: flex;justify-content: space-between;align-items: baseline;text-decoration: none;color: white;flex-direction: row;  list-style-type: none;">
+            <li style = "margin-right: 35px;"><a href="/" style = "text-decoration: none;;color: white;font-size: 17px;font-family: arial;font-weight: 700;">Home</a></li>
+
+            <li style = "margin-right: 35px;"><a href="/listcontactus" style = "text-decoration: none;color: white;font-size: 17px;font-family: arial;font-weight: 700;">ContactUs List</a></li>
+        </ul>
+    </div><br>
+    <form action="/addcontactus_submit" method="post">
+        <table style="width:500px;margin: 0 auto;background:linear-gradient(70deg, rgba(206, 40, 98, 0.932), rgba(206, 40, 98, 0.932));padding: 40px;color:white;font-family: arial;">
+
+            <tr>
+                <td>User Id</td>
+                <td>
+                    <select name="UserId">
+                        <% for(let i = 0; i < contact.length; i++){ %>
+                            <option value="<%= contact[i].UserId %>"><%= contact[i].Username %></option>
+                        <% } %>
+                    </select>
+                </td>
+            </tr> 
+            <tr>
+                <td>Email</td>
+                <td><input type="email" name="Email" value="<%= contactus.Email %>"></td>
+            </tr>
+            <tr>
+                <td>Message</td>
+                <td><input type="text" name="Message" value="<%= contactus.Message %>"></td>
+            </tr>   
+            <tr>
+                <td><input type="submit" value="Submit" /></td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

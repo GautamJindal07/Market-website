@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="margin: 0;padding: 0;">
+    <div style = "background:linear-gradient(70deg, rgba(206, 40, 98, 0.932), rgba(206, 40, 98, 0.932));display: flex;align-items: baseline;justify-content: space-between;">
+        
+        <ul style = "display: flex;justify-content: space-between;align-items: baseline;text-decoration: none;color: white;flex-direction: row;  list-style-type: none;">
+            <li style = "margin-right: 35px;"><a href="/" style = "text-decoration: none;;color: white;font-size: 17px;font-family: arial;font-weight: 700;">Home</a></li>
+
+            <li style = "margin-right: 35px;"><a href="/listtestimonial" style = "text-decoration: none;color: white;font-size: 17px;font-family: arial;font-weight: 700;">Testimonial List</a></li>
+        </ul>
+    </div><br>
+    <form action="/addtestimonials_submit" method="post">
+        <table style="width:500px;margin: 0 auto;background:linear-gradient(70deg,rgba(206, 40, 98, 0.932), rgba(206, 40, 98, 0.932));padding: 40px;color:white;font-family: arial;">
+            
+            <tr>
+                <td>Name</td>
+                <td><input type="text" name="Name" value="<%= test.Name %>"></td>
+            </tr>
+            <tr>
+                <td>Remarks</td>
+                <td><input type="text" name="Remarks" value="<%= test.Remarks %>"></td>
+            </tr>
+
+            <tr>
+                <td>stars</td>
+                <td><input type="number" name="stars" value="<%= test.stars %>"></td>
+            </tr>
+            <tr>
+                <td><input type="submit" value="Submit" /></td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="margin: 0;padding: 0;">
+    <div style = "background:linear-gradient(70deg,rgba(206, 40, 98, 0.932), rgba(206, 40, 98, 0.932));display: flex;align-items: baseline;justify-content: space-between;">
+        
+        <ul style = "display: flex;justify-content: space-between;align-items: baseline;text-decoration: none;color: white;flex-direction: row;  list-style-type: none;">
+            <li style = "margin-right: 35px;"><a href="/" style = "text-decoration: none;;color: white;font-size: 17px;font-family: arial;font-weight: 700;">Home</a></li>
+            <li style = "margin-right: 35px;"><a href="/addusers" style = "text-decoration: none;color: white;font-size: 17px;font-family: arial;font-weight: 700;">Add Users</a></li>
+
+        </ul>
+    </div><br>
+
+    <div style="width:1200PX;margin: 0 auto;background:linear-gradient(70deg, rgba(206, 40, 98, 0.932), rgba(206, 40, 98, 0.932));color:white;">
+        <table align="center" border="1" cellspacing="5" style="font-family: arial;padding: 35px;">
+            <tr>
+                <td>FirstName</td>
+                <td>LastName</td>
+                <td>UserId</td>
+                <td>Username</td>
+                <td>Email</td>
+                <td>Password</td>
+                <td>Address</td>
+                <td>Address2</td>
+                <td>City</td>
+                <td>State</td>
+                <td>Zip</td>
+            </tr>
+                <% for(var i = 0; i < result.length; i++) { %>
+                    <tr>
+                        <td><%= result[i].FirstName %></td>
+                        <td><%= result[i].LastName %></td>
+                        <td><%= result[i].UserId %></td>
+                        <td><%= result[i].Username %></td>
+                        <td><%= result[i].Email %></td>
+                        <td><%= result[i].Password %></td>
+                        <td><%= result[i].Address %></td>
+                        <td><%= result[i].Address2 %></td>
+                        <td><%= result[i].City %></td>
+                        <td><%= result[i].State %></td>
+                        <td><%= result[i].Zip %></td>
+                        <td>
+                            <a href="/editusers?UserId=<%= result[i].UserId %>" style="color: white;">Edit</a>
+                            <a href="/deleteusers?UserId=<%= result[i].UserId %>" style="color: white;">Delete</a>
+                        </td>
+                    </tr>
+                <% } %>
+        </table>
+    </div>
+</body>
+</html>
